@@ -7,9 +7,9 @@ import squarify
 from matplotlib.patches import Patch
 
 class Graph_Drawing():
-    def rfm_component_graph(self, df_rfm, rfm_component):
+    def rfm_component_graph(self, df_rfm, rfm_component, color):
         plt.figure()
-        sns.histplot(df_rfm[rfm_component], bins=30, kde=True, color='blue', edgecolor='pink')
+        sns.histplot(df_rfm[rfm_component], bins=30, kde=True, color=color, edgecolor='pink')
 
         plt.xlabel(rfm_component)
         plt.ylabel('Number of Customers')
