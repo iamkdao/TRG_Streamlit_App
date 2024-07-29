@@ -39,8 +39,8 @@ if file:
             st.header('Silhouette Score: {:0.2f}'.format(silhouette_score))
 
             # Creates graphs 
-            for component in ['Recency', 'Frequency', 'Monetary']:
-                figure = graph_drawing.rfm_component_graph(rfm_data, component)
+            for component, color in zip(['Recency', 'Frequency', 'Monetary'], ['blue', 'green', 'orange']):
+                figure = graph_drawing.rfm_component_graph(rfm_data, component, color)
                 st.pyplot(figure)
                 plt.close()
                 
