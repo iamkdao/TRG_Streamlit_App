@@ -24,9 +24,13 @@ if file:
         try:
             df = data_handling.create_dataframe(raw_data)
             st.success('Dataframe created successfully.')
+        except KeyError as ke:
+            st.error(f'You need columns with such names: AccountID, CloseDate, DealValue, DealStage')
+            st.stop()
         except Exception as e:
-            st.error(f'Error creating dataframe: {e}')
-        
+            st.error(f'Error creating dataframe: {type(e)}')
+            st.stop()
+            
         if st.button('Run RFM Segmentation'):
             click_button(1)
         
