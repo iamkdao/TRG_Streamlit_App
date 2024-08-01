@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import squarify
 
+from matplotlib.ticker import MaxNLocator
 from matplotlib.patches import Patch
 
 class Graph_Drawing():
@@ -14,6 +15,9 @@ class Graph_Drawing():
         plt.xlabel(rfm_component)
         plt.ylabel('Number of Customers')
         plt.title(f"Number of Customers based on {rfm_component}")
+        
+        plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
+        
         return plt.gcf()
         
     def treemap_drawing(self, cluster_centers):
